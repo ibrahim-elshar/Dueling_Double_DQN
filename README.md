@@ -1,3 +1,4 @@
+Assignment 2 for 10-703 Deep Reinforcement Learning and Control - CMU
 # dueling_double_dqn
 
 Code was tested with Python version 2.7
