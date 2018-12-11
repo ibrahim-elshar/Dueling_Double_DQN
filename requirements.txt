@@ -1,0 +1,9 @@
+future
+gym==0.9.5
+numpy
+scipy
+matplotlib
+six
+protobuf
+tensorflow==1.5
+keras
