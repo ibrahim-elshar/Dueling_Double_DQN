@@ -396,17 +396,19 @@ class Deep_Agent():
 
     def fast_minibatch_update(self, replay_batch, update_tgt=False):
         # Split up axes of replay_batch buffer
-        states = np.array(map(lambda bs: bs[0], replay_batch))
-        actions = np.array(map(lambda bs: bs[1], replay_batch))
-        rewards = np.array(map(lambda bs: bs[2], replay_batch))
-        next_states = np.array(map(lambda bs: bs[3], replay_batch))
-        done_flags = np.array(map(lambda bs: bs[4], replay_batch))
+        states = np.array(list(map(lambda bs: bs[0], replay_batch)))
+        actions = np.array(list(map(lambda bs: bs[1], replay_batch)))
+        rewards = np.array(list(map(lambda bs: bs[2], replay_batch)))
+        next_states = np.array(list(map(lambda bs: bs[3], replay_batch)))
+        done_flags = np.array(list(map(lambda bs: bs[4], replay_batch)))
+        
 
         # For states, next_states arrays, they have an additional dimension 
         ## due to how they are saved, so we must squeeze them down one dim
         states = np.squeeze(states)
         next_states = np.squeeze(next_states)
-
+#        print('states=',states.shape)
+#        print('next_states=',next_states.shape)
         # Gather target q_values from replay batch
         batch_q_values_arr= self.model.predict(states)
         tgt_q_values = None
