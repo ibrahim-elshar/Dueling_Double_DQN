@@ -5,5 +5,5 @@ scipy
 matplotlib
 six
 protobuf
-tensorflow==1.10.0
+tensorflow>=1.12.1
 keras
